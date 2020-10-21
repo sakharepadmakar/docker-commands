@@ -1,0 +1,12 @@
+#Note: Make sure you have latest aws cli installed 
+# Docker ecr Login
+aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin <account_id>.dkr.ecr.ap-south-1.amazonaws.com
+
+# Build docker image
+docker build -t python .
+
+# tag image name
+docker tag python:latest <account_id>.dkr.ecr.ap-south-1.amazonaws.com/python:latest
+
+# push to ecr
+docker push <account_id>.dkr.ecr.ap-south-1.amazonaws.com/python:latest

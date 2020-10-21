@@ -1,0 +1,48 @@
+#connect to docker container interact mode
+docker exec -it <container-id or container name>
+
+#check docker logs
+docker logs -f <container-id or container name>
+
+#check logs for perticular time
+#for min
+docker logs --since=5m <container-id or container name>
+
+#for Hour
+docker logs --since=5h <container-id or container name>
+
+#for days
+docker logs --since=5 <container-id or container name>
+
+# Docker container restart always on running container
+docker update --restart=always <container-id or container name>
+
+#export Docker container:
+docker export --output=test.tar <container-id or container name>
+
+#Image from running container directly:
+docker commit dcc91772908e <image-name>:<tag>
+docker commit <existing-container> <hub-user>/<repo-name>[:<tag>]
+
+#Import the docker file
+docker import <full_path of tarfile> <image-name>:<tag>
+ 
+#To build your docker-compose through yaml file
+docker-compose build
+
+#To start the services
+docker-compose up
+
+# Rename docker Image
+docker image tag <Image-id> <Image Name>:<Version>
+
+#clear unused resources
+sudo docker rm -v $(sudo docker ps -a -q -f status=exited)
+sudo docker rmi -f  $(sudo docker images -f "dangling=true" -q)
+docker volume ls -qf dangling=true | xargs -r docker volume rm
+
+# docker export from image
+docker save <Image-name> > <New-Filename>.tar
+
+#docker login
+docker login --username foo

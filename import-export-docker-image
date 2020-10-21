@@ -1,0 +1,6 @@
+docker commit <container-id> <Image-name>:<tag>
+
+docker save <Image-id> > <FILENAME>.zip
+
+#copy the image wherever you want
+docker load < <FILENAME>.zip

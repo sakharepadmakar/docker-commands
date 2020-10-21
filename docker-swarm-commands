@@ -1,0 +1,19 @@
+#list swarm services
+docker service ls
+
+#find containers in a node
+docker service ps
+
+#scale the containers
+docker service scale
+
+#stop container in a node
+docker service stop
+
+#
+docker service logs
+
+#
+docker service rm 
+
+
